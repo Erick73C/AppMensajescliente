@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    id("com.android.application")
+//    id("com.android.application")
     id("com.google.gms.google-services")
 }
 
@@ -58,6 +58,12 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    // Firebase BOM (una sola vez, con versión real)
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+
+// FCM
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
+// Analytics (opcional)
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
